@@ -13,7 +13,7 @@
 | 03 | [SQL Analysis](./03_sql_analysis/) | PostgreSQL, CTE, subqueries, window functions | готов на dataset 2023–2025 |
 | 04 | [Marketing Analysis](./04_marketing_analysis/) | CTR, CPC, ROI, segmentation | готов: synthetic educational dataset 2024, явно маркирован |
 | 05 | [Power BI Dashboard](./05_dashboard/) | Power Query, DAX, data model, dashboard design | спецификация и DAX готовы |
-| 06 | [Final Project](./06_final_project/) | end-to-end business analytics | спецификация 2023+ готова |
+| 06 | [Final Project](./06_final_project/) | end-to-end business analytics | готов: data + Python + проверенные KPI |
 
 ## Стек
 **Python:** Pandas, NumPy, SciPy, Statsmodels, Matplotlib  
