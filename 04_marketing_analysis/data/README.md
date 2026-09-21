@@ -1,8 +1,5 @@
-# Данные
+# Dataset
 
-Финальный файл должен называться `marketing_data.csv` и содержать наблюдения **2023 года или новее**.
+`google_ads_jan_2024.csv` — 1,000 учебных marketing-campaign observations за январь 2024.
 
-Обязательные поля для полного расчёта маркетинговых KPI:
-`date`, `channel`, `spend`, `impressions`, `clicks`, `customers_acquired`, `revenue`.
-
-Если источник не содержит расходов или привлечённых клиентов, CAC/ROI не рассчитываются искусственно.
+Важно: upstream-проект сообщает, что источник сгенерирован через Mockaroo для имитации API-данных. Поэтому dataset маркируется как synthetic/educational.
