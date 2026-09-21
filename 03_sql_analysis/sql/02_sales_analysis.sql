@@ -1,11 +1,8 @@
--- Olist: месячная динамика продаж
 SELECT
-    DATE_TRUNC('month', o.order_purchase_timestamp)::date AS month,
+    DATE_TRUNC('month', o.order_date)::date AS month,
     COUNT(DISTINCT o.order_id) AS orders,
-    ROUND(SUM(oi.price)::numeric, 2) AS product_revenue,
-    ROUND(AVG(oi.price)::numeric, 2) AS avg_item_price
-FROM olist_orders o
-JOIN olist_order_items oi USING (order_id)
-WHERE o.order_status = 'delivered'
+    ROUND(SUM(oi.total_amount), 2) AS revenue
+FROM orders o
+JOIN order_items oi USING (order_id)
 GROUP BY 1
 ORDER BY 1;
