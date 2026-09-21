@@ -1,9 +1,8 @@
 SELECT
-    o.customer_id,
-    COUNT(DISTINCT o.order_id) AS orders,
-    ROUND(SUM(oi.total_amount), 2) AS revenue
-FROM orders o
-JOIN order_items oi USING (order_id)
-GROUP BY o.customer_id
+    customer_name,
+    COUNT(DISTINCT order_id) AS orders,
+    ROUND(SUM(quantity * unit_price), 2) AS revenue
+FROM ecommerce_sales
+GROUP BY customer_name
 ORDER BY revenue DESC
 LIMIT 20;
