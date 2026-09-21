@@ -2,7 +2,7 @@ SELECT
     product_category,
     product_name,
     SUM(quantity) AS units_sold,
-    ROUND(SUM(quantity * unit_price), 2) AS revenue
+    ROUND(SUM(total_sales), 2) AS revenue
 FROM ecommerce_sales
 GROUP BY product_category, product_name
 ORDER BY revenue DESC
