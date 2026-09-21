@@ -1,7 +1,7 @@
 WITH monthly AS (
     SELECT
         DATE_TRUNC('month', order_date)::date AS month,
-        SUM(quantity * unit_price) AS revenue
+        SUM(total_sales) AS revenue
     FROM ecommerce_sales
     GROUP BY 1
 ),
