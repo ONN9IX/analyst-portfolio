@@ -1,42 +1,23 @@
-# SQL-анализ E-commerce 2023–2024
+# SQL-анализ Global E-Commerce 2023–2025
 
-## Цель
-Практический SQL-кейс на современной e-commerce модели: продажи, клиенты, товары, категории, возвраты и динамика бизнеса.
+SQL-проект использует тот же современный источник, что и Project 01, но решает задачи средствами PostgreSQL.
 
-## Требование к данным
-В портфолио используются транзакции **не старше 2023 года**. Старый Olist (2016–2018) исключён из проекта.
+## Dataset
+`global_ecommerce_sales.csv`: 2 000 заказов, период 2023–2025. Revenue рассчитывается как `quantity * unit_price`.
 
-Целевая схема:
-- `customers(customer_id, customer_name, city, state, signup_date)`
-- `products(product_id, product_name, category, subcategory, brand, unit_price, cost_price)`
-- `orders(order_id, customer_id, order_date, shipping_date, order_status, payment_method, shipping_city)`
-- `order_items(order_id, product_id, quantity, unit_price, discount, total_amount)`
+## Что демонстрирует
+- DDL и ограничения качества данных;
+- агрегаты;
+- GROUP BY;
+- CTE;
+- подзапросы;
+- LAG;
+- cumulative SUM;
+- MoM growth;
+- анализ клиентов, товаров и категорий.
 
-## Бизнес-вопросы
-- Общая выручка, количество заказов и AOV.
-- Динамика продаж по месяцам.
-- Повторные покупки и наиболее ценные клиенты.
-- Топ товаров и категорий.
-- Маржинальность при наличии себестоимости.
-- MoM growth и накопительная выручка.
+## Файлы
+`00_schema.sql` создаёт staging table; остальные запросы выполняют анализ.
 
-## SQL-навыки
-`JOIN`, `GROUP BY`, `CASE`, `CTE`, подзапросы, `LAG`, `RANK`, оконные функции и работа с датами.
-
-## Структура
-```text
-03_sql_analysis/
-├── README.md
-├── data/
-│   └── README.md
-└── sql/
-    ├── 01_basic_analysis.sql
-    ├── 02_sales_analysis.sql
-    ├── 03_customer_analysis.sql
-    ├── 04_product_analysis.sql
-    ├── 05_cte.sql
-    └── 06_window_functions.sql
-```
-
-## Принцип
-Расчёты строятся из исходных транзакций. Готовые KPI не подставляются вручную.
+## Ограничение
+Исходник плоский, поэтому искусственно разбивать его на несколько «реальных» таблиц только ради JOIN нецелесообразно. JOIN будет демонстрироваться в итоговом проекте, если выбранный источник действительно имеет несколько сущностей.
