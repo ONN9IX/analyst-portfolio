@@ -1,9 +1,8 @@
 WITH monthly AS (
     SELECT
-        DATE_TRUNC('month', o.order_date)::date AS month,
-        SUM(oi.total_amount) AS revenue
-    FROM orders o
-    JOIN order_items oi USING (order_id)
+        DATE_TRUNC('month', order_date)::date AS month,
+        SUM(quantity * unit_price) AS revenue
+    FROM ecommerce_sales
     GROUP BY 1
 ),
 x AS (
