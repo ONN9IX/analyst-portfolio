@@ -1,21 +1,10 @@
--- Olist: базовые KPI по доставленным заказам
-SELECT COUNT(*) AS delivered_orders
-FROM olist_orders
-WHERE order_status = 'delivered';
-
-SELECT COUNT(DISTINCT customer_unique_id) AS unique_customers
-FROM olist_orders o
-JOIN olist_customers c USING (customer_id)
-WHERE o.order_status = 'delivered';
-
-SELECT ROUND(SUM(oi.price)::numeric, 2) AS product_revenue
-FROM olist_order_items oi
-JOIN olist_orders o USING (order_id)
-WHERE o.order_status = 'delivered';
+-- Базовые KPI
+SELECT COUNT(DISTINCT order_id) AS orders FROM orders;
+SELECT COUNT(DISTINCT customer_id) AS customers FROM orders;
+SELECT ROUND(SUM(total_amount), 2) AS revenue FROM order_items;
 
 SELECT ROUND(
-    SUM(oi.price)::numeric / NULLIF(COUNT(DISTINCT o.order_id), 0), 2
+    SUM(oi.total_amount) / NULLIF(COUNT(DISTINCT o.order_id), 0), 2
 ) AS average_order_value
-FROM olist_order_items oi
-JOIN olist_orders o USING (order_id)
-WHERE o.order_status = 'delivered';
+FROM orders o
+JOIN order_items oi USING (order_id);
