@@ -8,10 +8,10 @@
 
 | # | Проект | Что демонстрирует | Статус |
 |---|---|---|---|
-| 01 | [Sales Analysis](./01_sales_analysis/) | Python, Pandas, EDA, визуализация | миграция на 2023+ |
+| 01 | [Sales Analysis](./01_sales_analysis/) | Python, Pandas, EDA, KPI | готов: dataset 2023–2025 + проверенные KPI |
 | 02 | [A/B Testing](./02_ab_testing/) | статистика, chi-square, CI, bootstrap, SQL | код готов; нужен исходный CSV |
-| 03 | [SQL Analysis](./03_sql_analysis/) | JOIN, CTE, subqueries, window functions | SQL-каркас 2023+ готов |
-| 04 | [Marketing Analysis](./04_marketing_analysis/) | CAC, CTR, CPC, ROAS, ROI | аналитический код готов; нужен валидированный dataset |
+| 03 | [SQL Analysis](./03_sql_analysis/) | PostgreSQL, CTE, subqueries, window functions | готов на dataset 2023–2025 |
+| 04 | [Marketing Analysis](./04_marketing_analysis/) | CTR, CPC, ROI, segmentation | готов: synthetic educational dataset 2024, явно маркирован |
 | 05 | [Power BI Dashboard](./05_dashboard/) | Power Query, DAX, data model, dashboard design | спецификация и DAX готовы |
 | 06 | [Final Project](./06_final_project/) | end-to-end business analytics | спецификация 2023+ готова |
 
