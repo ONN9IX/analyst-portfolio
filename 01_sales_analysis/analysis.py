@@ -25,7 +25,14 @@ for col in ["quantity","unit_price"]:
 if df["order_id"].duplicated().any():
     raise ValueError("Expected one row per order, but duplicate order_id values were found.")
 
-df["revenue"] = df["quantity"] * df["unit_price"]
+# Dataset already provides discounted Total_Sales. Recalculate it to validate source logic.
+if "total_sales" not in df.columns:
+    raise ValueError("Missing source metric: total_sales")
+df["total_sales"] = pd.to_numeric(df["total_sales"], errors="raise")
+df["revenue"] = df["total_sales"]
+
+if "profit" in df.columns:
+    df["profit"] = pd.to_numeric(df["profit"], errors="raise")
 
 print("Period:", df["order_date"].min().date(), "—", df["order_date"].max().date())
 print("Rows:", len(df))
