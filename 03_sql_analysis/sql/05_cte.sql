@@ -1,5 +1,5 @@
 WITH customer_sales AS (
-    SELECT customer_name, SUM(quantity * unit_price) AS revenue
+    SELECT customer_name, SUM(total_sales) AS revenue
     FROM ecommerce_sales
     GROUP BY customer_name
 )
