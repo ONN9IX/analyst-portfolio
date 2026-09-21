@@ -2,44 +2,48 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-DATA = Path(__file__).parent / "data" / "marketing_data.csv"
+DATA = Path(__file__).parent / "data" / "google_ads_jan_2024.csv"
 df = pd.read_csv(DATA)
-df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
+df.columns = df.columns.str.strip().str.lower()
 
-required = {"date","channel","spend","impressions","clicks","customers_acquired","revenue"}
+required = {"company","campaign_type","conversion_rate","acquisition_cost","roi","clicks","impressions","date"}
 missing = required - set(df.columns)
 if missing:
-    raise ValueError(f"Missing required columns: {sorted(missing)}")
+    raise ValueError(f"Missing columns: {sorted(missing)}")
 
 df["date"] = pd.to_datetime(df["date"], errors="raise")
 if df["date"].dt.year.min() < 2023:
-    raise ValueError("Dataset contains pre-2023 rows. Use a 2023+ dataset.")
+    raise ValueError("Dataset contains pre-2023 rows.")
 
-for col in ["spend","impressions","clicks","customers_acquired","revenue"]:
+numeric = ["conversion_rate","acquisition_cost","roi","clicks","impressions"]
+for col in numeric:
     df[col] = pd.to_numeric(df[col], errors="raise")
-    if (df[col] < 0).any():
-        raise ValueError(f"{col} contains negative values")
 
-print("Shape:", df.shape)
-print("Missing values:\n", df.isna().sum())
-print("Duplicate rows:", df.duplicated().sum())
+if (df[["acquisition_cost","clicks","impressions"]] < 0).any().any():
+    raise ValueError("Negative cost/click/impression values found.")
 
-channel = df.groupby("channel", as_index=False).agg(
-    spend=("spend","sum"),
-    impressions=("impressions","sum"),
+def div(a, b):
+    return np.nan if b == 0 else a / b
+
+cost = df["acquisition_cost"].sum()
+clicks = df["clicks"].sum()
+impressions = df["impressions"].sum()
+
+print("Period:", df["date"].min().date(), "—", df["date"].max().date())
+print("Rows:", len(df))
+print("Impressions:", int(impressions))
+print("Clicks:", int(clicks))
+print("CTR:", f"{div(clicks, impressions):.2%}")
+print("Acquisition Cost:", round(cost, 2))
+print("CPC:", round(div(cost, clicks), 2))
+print("Cost-weighted ROI:", round(np.average(df["roi"], weights=df["acquisition_cost"]), 2))
+print("Click-weighted Conversion Rate:", f"{np.average(df['conversion_rate'], weights=df['clicks']):.2%}")
+
+grouped = df.groupby("campaign_type").agg(
+    cost=("acquisition_cost","sum"),
     clicks=("clicks","sum"),
-    customers=("customers_acquired","sum"),
-    revenue=("revenue","sum"),
-)
-
-def safe_divide(a, b):
-    return np.divide(a, b, out=np.full(len(a), np.nan, dtype=float), where=b.to_numpy() != 0)
-
-channel["ctr"] = safe_divide(channel["clicks"], channel["impressions"])
-channel["cpc"] = safe_divide(channel["spend"], channel["clicks"])
-channel["conversion_rate"] = safe_divide(channel["customers"], channel["clicks"])
-channel["cac"] = safe_divide(channel["spend"], channel["customers"])
-channel["roas"] = safe_divide(channel["revenue"], channel["spend"])
-channel["roi"] = safe_divide(channel["revenue"] - channel["spend"], channel["spend"])
-
-print("\nChannel performance:\n", channel.sort_values("roi", ascending=False, na_position="last"))
+    impressions=("impressions","sum"),
+).reset_index()
+grouped["ctr"] = grouped["clicks"] / grouped["impressions"]
+grouped["cpc"] = grouped["cost"] / grouped["clicks"]
+print("\nBy campaign type:\n", grouped.sort_values("ctr", ascending=False))
