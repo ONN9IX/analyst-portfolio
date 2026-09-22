@@ -25,7 +25,7 @@ for col in ["quantity","unit_price"]:
 if df["order_id"].duplicated().any():
     raise ValueError("Expected one row per order, but duplicate order_id values were found.")
 
-# Dataset already provides discounted Total_Sales. Recalculate it to validate source logic.
+# Dataset already provides discounted Total_Sales; use it as the revenue source.
 if "total_sales" not in df.columns:
     raise ValueError("Missing source metric: total_sales")
 df["total_sales"] = pd.to_numeric(df["total_sales"], errors="raise")
