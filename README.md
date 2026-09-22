@@ -13,6 +13,8 @@
 
 **Проверенные KPI:** 2 000 заказов · Revenue 484 559,34 · Profit 158 872,32 · Margin 32,79% · AOV 242,28.
 
+[![Yandex DataLens E-commerce Dashboard](./05_dashboard/datalens_dashboard.png)](./05_dashboard/)
+
 ### 2. A/B Testing — Cookie Cats
 [Открыть проект](./02_ab_testing/)
 
