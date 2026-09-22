@@ -16,8 +16,8 @@
 | 06 | [Final Project](./06_final_project/) | end-to-end business analytics | готов: data + Python + проверенные KPI |
 
 ## Стек
-**Python:** Pandas, NumPy, SciPy, Statsmodels, Matplotlib  
-**SQL:** PostgreSQL, JOIN, CTE, оконные функции  
+**Python:** Pandas, NumPy, SciPy, Statsmodels  
+**SQL:** PostgreSQL, CTE, подзапросы, оконные функции  
 **BI:** Yandex DataLens, calculated fields, interactive dashboards  
 **Практики:** EDA, data quality, A/B testing, business metrics, reproducible analysis
 
