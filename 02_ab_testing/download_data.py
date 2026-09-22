@@ -1,7 +1,7 @@
 from pathlib import Path
 from urllib.request import urlretrieve
 
-URL = "https://raw.githubusercontent.com/ryanschaub/Mobile-Games-A-B-Testing-with-Cookie-Cats/master/cookie_cats.csv"
+URL = "https://raw.githubusercontent.com/yufung/ab-testing-cookie-cats/master/data/cookie_cats.csv"
 TARGET = Path(__file__).parent / "data" / "cookie_cats.csv"
 TARGET.parent.mkdir(exist_ok=True)
 
