@@ -2,28 +2,26 @@
 
 Дата проверки: 2026-09-22.
 
-## Исправлено
-- удалены старые Superstore данные 2014–2017;
-- Project 01 переведён на данные 2023–2025;
-- Project 03 согласован с актуальным e-commerce CSV;
-- Project 04 использует 2024 synthetic/educational data с явной маркировкой;
-- Project 05 переведён с незавершённой Power BI-заготовки на фактически собранный Yandex DataLens dashboard;
-- Project 06 содержит данные 2023–2025 и проверенные KPI;
-- README не содержит выдуманных контактов, сертификатов или результатов.
+## Завершено
+- [x] Project 01: e-commerce CSV 2023–2025 добавлен, KPI проверены;
+- [x] Project 02: Cookie Cats source зафиксирован, добавлена воспроизводимая загрузка, результаты retention и статистические тесты проверены;
+- [x] Project 03: SQL согласован с актуальной схемой и Total_Sales;
+- [x] Project 04: dataset 2024 добавлен и явно маркирован synthetic/educational;
+- [x] Project 04: NumPy добавлен в requirements;
+- [x] Project 05: Yandex DataLens dashboard фактически собран;
+- [x] Project 05: KPI сверены с Python-агрегатами;
+- [x] Project 06: CSV 2023–2025 добавлен, KPI и основные result-файлы сохранены;
+- [x] старые Superstore 2014–2017 и устаревшие Power BI/DAX файлы удалены;
+- [x] README согласован с фактическими проектами;
+- [x] PR проверен: mergeable = true;
+- [x] добавлен GitHub Actions workflow для compile + запуска Python-проектов.
 
-## Проверки перед финальным merge
-- [x] структура основных каталогов;
-- [x] Project 01: финальный CSV добавлен и KPI проверены;
-- [x] Project 03: SQL использует Total_Sales;
-- [x] Project 04: CSV добавлен, источник явно маркирован synthetic/educational;
-- [x] Project 05: dashboard собран в Yandex DataLens;
-- [x] Project 05: KPI сверены с Python-анализом;
-- [x] Project 06: финальный CSV добавлен и KPI проверены;
-- [ ] Project 02: добавить исходный A/B CSV и рассчитать фактические результаты;
-- [ ] выполнить финальную runtime/syntax проверку Python;
-- [ ] добавить/проверить итоговые result-файлы Project 06;
-- [ ] финально проверить README и отсутствие устаревших Power BI ссылок;
-- [ ] проверить mergeability PR перед merge.
+## Контрольные e-commerce KPI
+Revenue 484 559,34; Profit 158 872,32; Orders 2 000; Customers 1 534; Units 7 115; AOV 242,28; Profit Margin 32,79%.
 
-## Блокирующий принцип
-Пункт отмечается выполненным только при наличии фактического файла, расчёта или проверенного артефакта.
+## Контрольные A/B результаты
+- Day 1: 44,82% vs 44,23%; p = 0,0755;
+- Day 7: 19,02% vs 18,20%; p = 0,0016.
+
+## Принцип
+В портфолио не заявляются результаты, которые не подтверждены данными или воспроизводимым расчётом.
