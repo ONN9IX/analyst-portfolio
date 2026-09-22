@@ -1,23 +1,48 @@
-# Power BI Dashboard — спецификация
+# Yandex DataLens Dashboard — спецификация
 
-## Данные
-Только период **2023+**.
+## Датасет
+`E-commerce Sales 2023–2025`
 
-## Page 1 — Overview
-KPI: Revenue, Orders, Customers, AOV, Profit, Profit Margin. Линейный график Revenue by Month. Slicers: Date, Region, Category.
+## KPI
+Верхний блок:
+- Revenue
+- Profit
+- Orders
+- Customers
+- Units Sold
+- AOV
+- Profit Margin
 
-## Page 2 — Sales
-Revenue by Month, Orders by Month, Revenue by Category, Revenue by Region.
+## Основные чарты
+1. Revenue by Month — динамика выручки во времени.
+2. Revenue by Category — сравнение товарных категорий.
+3. Revenue by Region — географическое распределение выручки.
+4. Revenue by Customer Segment — сравнение клиентских сегментов.
+5. Profit Margin by Category — сравнение маржинальности категорий.
+6. Top Products by Revenue — товары с наибольшей выручкой.
 
-## Page 3 — Products
-Top products by Revenue, Profit by Product, Category performance.
+## Селекторы
+- Region
+- Product_Category
+- Customer_Segment
+- Order_Date
 
-## Page 4 — Customers
-Revenue by customer segment, customer count, repeat customers при наличии истории заказов.
+Селекторы применяются к KPI и аналитическим чартам.
 
-## Требования
-- единый Date table;
-- связи many-to-one;
-- меры из `measures.dax`;
-- никаких вручную введённых KPI;
-- screenshots страниц после сборки .pbix.
+## Контрольные значения без фильтров
+| KPI | Значение |
+|---|---:|
+| Revenue | 484 559,34 |
+| Profit | 158 872,32 |
+| Orders | 2 000 |
+| Customers | 1 534 |
+| Units Sold | 7 115 |
+| AOV | 242,28 |
+| Profit Margin | 32,79% |
+
+## Контроль фильтрации
+- Region = Europe → Revenue 137 006,20
+- Product_Category = Furniture → Revenue 256 274,68
+
+## Принцип
+KPI рассчитываются из полей датасета и не вводятся вручную. Значения сверяются с Python-анализом того же CSV.
