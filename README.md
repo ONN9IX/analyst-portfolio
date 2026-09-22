@@ -1,6 +1,6 @@
 # Data Analyst Portfolio
 
-Портфолио проектов по анализу данных: Python, SQL, статистика, маркетинговая аналитика и Power BI.
+Портфолио проектов по анализу данных: Python, SQL, статистика, маркетинговая аналитика и BI в Yandex DataLens.
 
 > **Стандарт данных:** основные бизнес-проекты строятся на наборах с периодом **2023 года и новее**. Исключение — специализированный A/B benchmark-кейс Cookie Cats, где ценность проекта заключается в статистической методологии, а не в актуальности рыночных показателей.
 
@@ -12,13 +12,13 @@
 | 02 | [A/B Testing](./02_ab_testing/) | статистика, chi-square, CI, bootstrap, SQL | код готов; нужен исходный CSV |
 | 03 | [SQL Analysis](./03_sql_analysis/) | PostgreSQL, CTE, subqueries, window functions | готов на dataset 2023–2025 |
 | 04 | [Marketing Analysis](./04_marketing_analysis/) | CTR, CPC, ROI, segmentation | готов: synthetic educational dataset 2024, явно маркирован |
-| 05 | [Power BI Dashboard](./05_dashboard/) | Power Query, DAX, data model, dashboard design | спецификация и DAX готовы |
+| 05 | [Yandex DataLens Dashboard](./05_dashboard/) | BI, calculated fields, KPI, dashboard design, filters | дашборд собран, KPI проверены |
 | 06 | [Final Project](./06_final_project/) | end-to-end business analytics | готов: data + Python + проверенные KPI |
 
 ## Стек
 **Python:** Pandas, NumPy, SciPy, Statsmodels, Matplotlib  
 **SQL:** PostgreSQL, JOIN, CTE, оконные функции  
-**BI:** Power BI, Power Query, DAX  
+**BI:** Yandex DataLens, calculated fields, interactive dashboards  
 **Практики:** EDA, data quality, A/B testing, business metrics, reproducible analysis
 
 ## Принципы
@@ -29,7 +29,7 @@
 - для бизнес-проектов приоритет — данные 2023+.
 
 ## Воспроизводимость
-В проектах хранятся SQL/Python-скрипты и требования к данным. Крупные или лицензируемые исходные наборы могут не дублироваться в GitHub; в таком случае README содержит описание источника и требуемой схемы.
+В проектах хранятся SQL/Python-скрипты, требования к данным и формулы BI-метрик. Крупные или лицензируемые исходные наборы могут не дублироваться в GitHub; в таком случае README содержит описание источника и требуемой схемы.
 
 ## Цель
 Репозиторий предназначен для демонстрации навыков кандидата на позицию **Junior Data Analyst / Data Analyst Intern**.
