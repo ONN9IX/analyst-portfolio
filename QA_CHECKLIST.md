@@ -49,7 +49,10 @@
 - [x] DataLens calculated fields совпадают с проверенными KPI;
 - [x] устаревшие Power BI/DAX материалы удалены;
 - [x] Final Project spec больше не содержит Power BI;
-- [x] корневой README не заявляет отсутствующие JOIN/Matplotlib;
+- [x] корневой README согласован с фактически реализованными инструментами;
+- [x] добавлен отдельный relational SQL case с JOIN/CASE/CTE/window functions;
+- [x] Projects 01/03/05/06 явно представлены как слои одного E-commerce Analytics Case;
+- [x] Project 06 дополнен проверенными business insights и следующими аналитическими шагами;
 - [x] ветка переработки успешно merged в `main`.
 
 ## Автоматизация
