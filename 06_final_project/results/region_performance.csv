@@ -1,6 +1,6 @@
-region,revenue
-Europe,137006.20
-North America,133876.38
-Asia Pacific,121707.51
-South America,46051.13
-Middle East & Africa,45918.12
+region,revenue,profit,orders
+North America,133876.38,45250.09,578
+Europe,137006.20,45672.16,503
+Middle East & Africa,45918.12,14152.48,208
+Asia Pacific,121707.51,39116.61,520
+South America,46051.13,14680.98,191
