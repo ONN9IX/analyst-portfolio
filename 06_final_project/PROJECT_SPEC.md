@@ -1,19 +1,23 @@
-# Final Project — E-commerce 360, 2023+
+# Final Project — E-commerce 360, 2023–2025
 
 ## Цель
-End-to-end кейс Data Analyst на современных данных: SQL → Python → бизнес-метрики → визуализация → Power BI.
+End-to-end кейс Data Analyst на современных данных: data quality → Python → бизнес-метрики → аналитические выгрузки → подготовка к BI.
 
-## Обязательный период
-Транзакции от **2023 года**.
+## Данные
+Транзакции за период **2023-01-02 — 2025-12-31**.
 
 ## Блоки
-1. Data quality: schema, nulls, duplicates, dates, anomalous values.
-2. Sales: Revenue, Orders, AOV, units, MoM.
-3. Customers: repeat rate, cohorts/RFM при достаточной истории.
-4. Products: categories, top products, margin при наличии cost.
-5. Marketing: только при наличии spend/acquisition data.
-6. Statistics: только при наличии корректной экспериментальной/сравнимой постановки.
-7. Dashboard: Overview, Sales, Products, Customers, Marketing (если данные позволяют).
+1. Data quality: схема, даты, дубликаты, числовые поля.
+2. Sales: Revenue, Orders, AOV, Units, Profit, Margin, MoM.
+3. Customers: количество клиентов и repeat rate с оговоркой об использовании Customer_Name.
+4. Products: категории, выручка, прибыль и маржинальность.
+5. Geography: выручка и прибыль по регионам.
+6. Outputs: воспроизводимые CSV-агрегаты для дальнейшего BI/отчётности.
+
+## Ограничения
+- отдельного Customer_ID нет;
+- маркетинговых spend/acquisition данных нет;
+- экспериментальной постановки нет, поэтому причинные и A/B-выводы здесь не делаются.
 
 ## Правило
-Ни одна цифра, рекомендация или статистический вывод не добавляется в README до фактического расчёта из исходных данных.
+Ни одна цифра или аналитический вывод не добавляется в README до фактического расчёта из исходных данных.
