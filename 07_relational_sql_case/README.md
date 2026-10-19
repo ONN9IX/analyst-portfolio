@@ -1,7 +1,7 @@
 # Relational SQL Business Case
 
 ## Цель
-Показать работу с нормализованной PostgreSQL-моделью, где аналитика требует реальных JOIN между сущностями, а не искусственного разделения одного CSV.
+Показать работу с учебной реляционной моделью PostgreSQL и аналитическими запросами с JOIN между связанными сущностями.
 
 ## Модель
 - `customers` — клиенты и сегменты;
@@ -22,7 +22,7 @@
 7. Как распределяется выручка по способам оплаты?
 
 ## Что демонстрирует
-`INNER JOIN`, `LEFT JOIN`, `CASE`, CTE, correlated aggregation, `LAG`, `DENSE_RANK`, cumulative `SUM OVER`, `NULLIF`.
+`INNER JOIN`, `LEFT JOIN`, `CASE`, CTE, агрегатные функции, `LAG`, `DENSE_RANK`, cumulative `SUM OVER`, `NULLIF`.
 
 ## Запуск
 ```bash
@@ -31,4 +31,4 @@ psql -d your_database -f sql/01_seed.sql
 psql -d your_database -f sql/02_business_analysis.sql
 ```
 
-Главный e-commerce кейс в Projects 01/03/05/06 остаётся анализом фактического CSV. Проект дополняет основной e-commerce кейс практикой работы с реляционной моделью.
+В отличие от остальных разделов, этот кейс использует небольшой полностью учебный набор, созданный в `01_seed.sql`, а не общий e-commerce CSV.
